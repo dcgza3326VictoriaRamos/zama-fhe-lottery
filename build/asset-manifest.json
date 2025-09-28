@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/zama-fhe-lottery/static/css/main.09c7efc3.css",
+    "main.js": "/zama-fhe-lottery/static/js/main.7a6e133d.js",
+    "index.html": "/zama-fhe-lottery/index.html",
+    "main.09c7efc3.css.map": "/zama-fhe-lottery/static/css/main.09c7efc3.css.map",
+    "main.7a6e133d.js.map": "/zama-fhe-lottery/static/js/main.7a6e133d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.09c7efc3.css",
+    "static/js/main.7a6e133d.js"
+  ]
+}
