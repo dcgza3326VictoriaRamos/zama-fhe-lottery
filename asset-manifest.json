@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/static/css/main.21f02675.css",
-    "main.js": "/static/js/main.5081ed76.js",
-    "index.html": "/index.html",
-    "main.21f02675.css.map": "/static/css/main.21f02675.css.map",
-    "main.5081ed76.js.map": "/static/js/main.5081ed76.js.map"
+    "main.css": "/zama-fhe-lottery/static/css/main.09c7efc3.css",
+    "main.js": "/zama-fhe-lottery/static/js/main.7a6e133d.js",
+    "index.html": "/zama-fhe-lottery/index.html",
+    "main.09c7efc3.css.map": "/zama-fhe-lottery/static/css/main.09c7efc3.css.map",
+    "main.7a6e133d.js.map": "/zama-fhe-lottery/static/js/main.7a6e133d.js.map"
   },
   "entrypoints": [
-    "static/css/main.21f02675.css",
-    "static/js/main.5081ed76.js"
+    "static/css/main.09c7efc3.css",
+    "static/js/main.7a6e133d.js"
   ]
 }
