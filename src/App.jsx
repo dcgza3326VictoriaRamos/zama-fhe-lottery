@@ -376,35 +376,36 @@ function App() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900">
       {/* Header */}
-      <header className="glass border-b border-white/20 p-6">
+      <header className="glass border-b border-white/20 p-4">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <div className="flex items-center space-x-4">
-            <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
-              <span className="text-white font-bold text-xl">🎲</span>
+          <div className="flex items-center space-x-3">
+            <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
+              <span className="text-white font-bold text-lg">🎲</span>
             </div>
-            <div>
-              <h1 className="text-2xl font-bold text-white">FHEVM Privacy Lottery</h1>
-              <p className="text-gray-300">Privacy-preserving lottery system based on fully homomorphic encryption</p>
-            </div>
+            <h1 className="text-xl font-bold text-white">Privacy Lottery</h1>
           </div>
           
           <div className="flex items-center space-x-4">
             {fheInitialized && (
               <div className="flex items-center space-x-2 text-green-400">
                 <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                <span className="text-sm">FHEVM Connected</span>
+                <span className="text-sm">FHEVM Ready</span>
               </div>
             )}
             
+            <div className="flex items-center space-x-2 text-green-400">
+              <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+              <span className="text-sm">sepolia (11155111)</span>
+            </div>
+            
             {account ? (
               <div className="flex items-center space-x-3">
-                <div className="text-white">
-                  <div className="text-sm text-gray-300">Connected</div>
-                  <div className="font-mono text-sm">{account.slice(0, 6)}...{account.slice(-4)}</div>
+                <div className="text-white font-mono text-sm bg-white/10 px-3 py-1 rounded-lg">
+                  {account.slice(0, 6)}...{account.slice(-4)}
                 </div>
                 <button
                   onClick={() => setAccount(null)}
-                  className="px-4 py-2 bg-red-500/20 text-red-400 border border-red-500/30 rounded-lg hover:bg-red-500/30 transition-colors"
+                  className="px-3 py-1 bg-red-500/20 text-red-400 border border-red-500/30 rounded-lg hover:bg-red-500/30 transition-colors text-sm"
                 >
                   Disconnect
                 </button>
@@ -413,7 +414,7 @@ function App() {
               <button
                 onClick={connectWallet}
                 disabled={loading}
-                className="btn-gradient px-6 py-3 rounded-lg text-white font-medium hover:shadow-lg transition-all disabled:opacity-50"
+                className="btn-gradient px-4 py-2 rounded-lg text-white font-medium hover:shadow-lg transition-all disabled:opacity-50 text-sm"
               >
                 {loading ? 'Connecting...' : 'Connect Wallet'}
               </button>
@@ -423,7 +424,29 @@ function App() {
       </header>
 
       {/* Main content */}
-      <main className="max-w-7xl mx-auto p-6">
+      <main className="max-w-6xl mx-auto p-6">
+        {/* Hero Section */}
+        <div className="text-center mb-12">
+          <h1 className="text-5xl font-bold text-white mb-4">Privacy Lottery System</h1>
+          <p className="text-xl text-gray-300 mb-8">Experience the future of lottery with complete privacy protection using Zama FHEVM technology</p>
+          
+          {/* Feature Buttons */}
+          <div className="flex justify-center space-x-6 mb-12">
+            <div className="flex items-center space-x-2 bg-white/10 px-4 py-2 rounded-lg">
+              <span className="text-2xl">🔒</span>
+              <span className="text-white font-medium">Encrypted Participation</span>
+            </div>
+            <div className="flex items-center space-x-2 bg-white/10 px-4 py-2 rounded-lg">
+              <span className="text-2xl">🛡️</span>
+              <span className="text-white font-medium">Privacy First</span>
+            </div>
+            <div className="flex items-center space-x-2 bg-white/10 px-4 py-2 rounded-lg">
+              <span className="text-2xl">⚡</span>
+              <span className="text-white font-medium">Instant Results</span>
+            </div>
+          </div>
+        </div>
+
         {/* Error message */}
         {error && (
           <div className="mb-6 p-4 bg-red-500/20 border border-red-500/30 rounded-lg text-red-400">
@@ -431,11 +454,28 @@ function App() {
           </div>
         )}
 
+        {/* Account Information */}
+        {account && (
+          <div className="mb-8">
+            <div className="glass rounded-xl p-6">
+              <h2 className="text-xl font-bold text-white mb-4">Account Information</h2>
+              <div className="text-gray-300">
+                <div className="font-mono text-sm">Address: {account}</div>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Create lottery form */}
         {account && (
           <div className="mb-8">
             <div className="glass rounded-xl p-6">
-              <h2 className="text-xl font-bold text-white mb-4">Create New Lottery</h2>
+              <div className="flex items-center space-x-3 mb-6">
+                <div className="w-8 h-8 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-lg flex items-center justify-center">
+                  <span className="text-white text-lg">🎲</span>
+                </div>
+                <h2 className="text-xl font-bold text-white">Create New Lottery</h2>
+              </div>
               <form onSubmit={createLottery} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-300 mb-2">Lottery Name</label>
@@ -529,7 +569,12 @@ function App() {
         {account && (
           <div className="mb-8">
             <div className="glass rounded-xl p-6">
-              <h2 className="text-xl font-bold text-white mb-4">Participate in Lottery</h2>
+              <div className="flex items-center space-x-3 mb-6">
+                <div className="w-8 h-8 bg-gradient-to-r from-green-400 to-emerald-400 rounded-lg flex items-center justify-center">
+                  <span className="text-white text-lg">🎫</span>
+                </div>
+                <h2 className="text-xl font-bold text-white">Participate in Lottery</h2>
+              </div>
               <form onSubmit={participateInLottery} className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-300 mb-2">Lottery ID</label>
@@ -571,7 +616,12 @@ function App() {
 
         {/* Lottery list */}
         <div className="mb-8">
-          <h2 className="text-2xl font-bold text-white mb-6">Lottery List</h2>
+          <div className="flex items-center space-x-3 mb-6">
+            <div className="w-8 h-8 bg-gradient-to-r from-purple-400 to-pink-400 rounded-lg flex items-center justify-center">
+              <span className="text-white text-lg">📋</span>
+            </div>
+            <h2 className="text-2xl font-bold text-white">Lottery List</h2>
+          </div>
           <div className="grid-responsive">
             {lotteries.map((lottery) => (
               <div key={lottery.id} className="glass rounded-xl p-6 card-hover">
